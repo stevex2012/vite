@@ -23,3 +23,21 @@ var require_object_assign = __commonJS({
     // ......
 });
 ```
+
+#### 
+- 使用babel编译jsx
+- 根据入口分析代码依赖
+- 使用__commonJS包装第三方库， 创建依赖函数包地图
+- 替换没有导处esmobule 模块的第三方包，使用__commonJS function 包裹es5代码，复制到node_modules/.vite 文件夹下
+- css 包装成 import 模块
+- 图片 先包装成 import 模块，导出路径，在根据路径请求资源
+```js
+// eg
+import React from 'react'
+import __vite__cjsImport0_react from "/node_modules/.vite/react.js?v=2c9703df";
+const React = __vite__cjsImport0_react.__esModule ? __vite__cjsImport0_react.default : __vite__cjsImport0_react;
+```
+- 修改引用路径
+- 创建服务器
+- 监听修改
+
